@@ -233,6 +233,9 @@ class CASBackend(object):
         if not username:
             return None
 
+        # Convert to lowercase to maintain uniformity
+        username = username.lower()
+
         try:
             user = User.objects.get(username__iexact=username)
         except User.DoesNotExist:
